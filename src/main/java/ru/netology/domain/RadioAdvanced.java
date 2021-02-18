@@ -39,6 +39,12 @@ public class RadioAdvanced {
     }
 
     public void setCurrentVolume(int currentVolume) {
+        if (currentVolume > maxVolume) {
+            return;
+        }
+        if (currentVolume < minVolume) {
+            return;
+        }
         this.currentVolume = currentVolume;
     }
 
@@ -64,7 +70,7 @@ public class RadioAdvanced {
 
     public void setCurrentRadioStation(int currentRadioStation) {
         if (currentRadioStation > maxRadioStation) {
-            return ;
+            return;
         }
         if (currentRadioStation < minRadioStation) {
             return;
@@ -78,5 +84,32 @@ public class RadioAdvanced {
 
     public void setOn(boolean on) {
         this.on = on;
+    }
+
+
+    public void pressNextStation() {
+        if (currentRadioStation >= maxRadioStation) {
+            setCurrentRadioStation(minRadioStation);
+        } else {
+            setCurrentRadioStation(currentRadioStation + 1);
+        }
+    }
+
+    public void pressPrevStation() {
+        if (currentRadioStation <= minRadioStation) {
+            setCurrentRadioStation(maxRadioStation);
+        } else {
+            setCurrentRadioStation(currentRadioStation - 1);
+        }
+    }
+
+    public void pressPlusVolume() {
+
+        setCurrentVolume(currentVolume + 1);
+    }
+
+    public void pressMinusVolume() {
+
+        setCurrentVolume(currentVolume - 1);
     }
 }
