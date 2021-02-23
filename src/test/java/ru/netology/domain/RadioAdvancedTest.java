@@ -21,6 +21,34 @@ class RadioAdvancedTest {
     }
 
     // тестируем станции
+    @Test
+    public void changeOverLastRadioStation() {
+        RadioAdvanced radio = new RadioAdvanced(
+                100,
+                0,
+                5,
+                10,
+                0,
+                10
+        );
+        radio.pressNextStation();
+        assertEquals(0, radio.getCurrentRadioStation());
+    }
+
+    @Test
+    public void changeUnderInitialRadioStation() {
+        RadioAdvanced radio = new RadioAdvanced(
+                100,
+                0,
+                5,
+                10,
+                0,
+                0
+        );
+        radio.pressPrevStation();
+        assertEquals(10, radio.getCurrentRadioStation());
+
+    }
 
     @Test
     public void nextRadioStation() {
@@ -82,7 +110,7 @@ class RadioAdvancedTest {
         RadioAdvanced radio = new RadioAdvanced(
                 100,
                 0,
-                5,
+                120,
                 10,
                 0,
                 3
