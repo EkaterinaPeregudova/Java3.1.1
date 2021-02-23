@@ -25,7 +25,7 @@ class RadioAdvancedTest {
     // тестируем станции
     @Test
     public void changeOverLastRadioStation() {
-        radio.setCurrentRadioStation(9);
+        radio.setCurrentRadioStation(radio.getMaxRadioStation());
         radio.pressNextStation();
         assertEquals(0, radio.getCurrentRadioStation());
     }
@@ -34,7 +34,7 @@ class RadioAdvancedTest {
     public void changeUnderInitialRadioStation() {
         radio.setCurrentRadioStation(0);
         radio.pressPrevStation();
-        assertEquals(9, radio.getCurrentRadioStation());
+        assertEquals(radio.getMaxRadioStation(), radio.getCurrentRadioStation());
 
     }
 
@@ -69,9 +69,9 @@ class RadioAdvancedTest {
     // тестируем громкость
     @Test
     public void volumeOverMax() {
-        radio.setCurrentVolume(11);
+        radio.setCurrentVolume(110);
         radio.getMaxVolume();
-        assertEquals(10, radio.getMaxVolume());
+        assertEquals(100, radio.getMaxVolume());
     }
 
     @Test
