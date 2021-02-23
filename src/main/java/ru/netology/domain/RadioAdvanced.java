@@ -2,13 +2,28 @@ package ru.netology.domain;
 
 public class RadioAdvanced {
     private String name;
-    private int maxVolume = 100;
-    private int minVolume = 0;
+    private int maxVolume;
+    private int minVolume;
     private int currentVolume;
-    private int maxRadioStation=9;
-    private int minRadioStation = 0;
+    private int maxRadioStation;
+    private int minRadioStation;
     private int currentRadioStation;
     private boolean on;
+
+
+    public RadioAdvanced(int maxVolume, int minVolume, int currentVolume, int maxRadioStation, int minRadioStation, int currentRadioStation) {
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+        this.currentVolume = currentVolume;
+        this.maxRadioStation = maxRadioStation;
+        this.minRadioStation = minRadioStation;
+        this.currentRadioStation = currentRadioStation;
+    }
+
+    public RadioAdvanced(){
+
+
+    }
 
     public String getName() {
         return name;
